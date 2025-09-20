@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Friends</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      animation: bgchange 10s infinite alternate;
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    @keyframes bgchange {
+      0% {background: linear-gradient(135deg, #ffecd2, #fcb69f);}
+      25% {background: linear-gradient(135deg, #a1c4fd, #c2e9fb);}
+      50% {background: linear-gradient(135deg, #d4fc79, #96e6a1);}
+      75% {background: linear-gradient(135deg, #f6d365, #fda085);}
+      100% {background: linear-gradient(135deg, #84fab0, #8fd3f4);}
+    }
+
+    header {
+      background: rgba(0,0,0,0.3);
+      padding: 30px 0;
+      color: #fff;
+      font-size: 2.2rem;
+      opacity: 0;
+      transform: translateY(-50px);
+      animation: headerAppear 1s forwards;
+      animation-delay: 0.5s;
+    }
+    header span { font-size: 2.5rem; margin-right: 10px; }
+
+    @keyframes headerAppear { to {opacity: 1; transform: translateY(0);} }
+
+    main {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    input, button {
+      padding: 12px;
+      margin-top: 20px;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    button {
+      background: #ff4d6d;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: buttonAppear 0.8s forwards;
+      animation-delay: 1s;
+    }
+
+    .output {
+      margin-top: 30px;
+      font-size: 1.4rem;
+      font-weight: bold;
+      min-height: 40px;
+      transition: opacity 0.4s ease;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 12px 25px;
+      border-radius: 10px;
+      background: #333;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: buttonAppear 0.8s forwards;
+      animation-delay: 1.3s;
+    }
+
+    a:hover { background: #555; transform: scale(1.05); }
+
+    @keyframes buttonAppear { to {opacity: 1; transform: translateY(0);} }
+  </style>
+</head>
+<body>
+  <header><span>❤️</span> My Friends</header>
+
+  <main>
+    <input type="text" id="nickname" placeholder="Enter nickname...">
+    <button onclick="showMessage()">Submit</button>
+    <div class="output" id="output"></div>
+    <a href="index.html">⬅ Back to Home</a>
+  </main>
+
+  <script>
+    const responses = {
+      "nowshin": "Miss you bondhu 😢",
+      "junayed": "How are you Tukhor? 😎",
+      "jubayer": "Hey France agent, go to France 😂",
+      "suddho": "Hey Motherfucker 🤬",
+      "sneha": "Hi. How is your medical prep going? 🩺",
+      "wamit": "Boss, you are my inspiration 🙌",
+      "ramim": "Boss, you are my inspiration 🙌",
+      "afifa": "How are you sister? 🌸",
+      "tamim": "What's up madarchod? 😏",
+      "tonmoy": "Bro, even if you are madarchod, you are trusted 🤝"
+    };
+
+    function showMessage() {
+      let name = document.getElementById("nickname").value.toLowerCase().trim();
+      let msg = responses[name] || "Sorry, I don't know you 😔";
+      let output = document.getElementById("output");
+      output.style.opacity = 0;
+      setTimeout(() => { output.innerHTML = msg; output.style.opacity = 1; }, 200);
+    }
+
+    document.getElementById("nickname").addEventListener("keypress", function(e) {
+      if (e.key === "Enter") showMessage();
+    });
+  </script>
+</body>
+</html>

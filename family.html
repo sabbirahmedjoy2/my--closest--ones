@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Family</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #c2e9fb, #a1c4fd);
+      animation: bgflow 10s infinite alternate;
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    @keyframes bgflow {
+      0% {background: linear-gradient(135deg, #c2e9fb, #a1c4fd);}
+      50% {background: linear-gradient(135deg, #f6d365, #fda085);}
+      100% {background: linear-gradient(135deg, #89f7fe, #66a6ff);}
+    }
+
+    header {
+      background: rgba(0,0,0,0.3);
+      padding: 30px 0;
+      color: #fff;
+      font-size: 2.2rem;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(-50px);
+      animation: headerAppear 1s forwards;
+      animation-delay: 0.5s;
+    }
+    header span { font-size: 2.5rem; margin-right: 10px; }
+
+    @keyframes headerAppear { to {opacity: 1; transform: translateY(0);} }
+
+    .output {
+      margin-top: 50px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: outputAppear 1s forwards;
+      animation-delay: 1s;
+    }
+
+    @keyframes outputAppear { to {opacity: 1; transform: translateY(0);} }
+
+    a.back-btn {
+      display: inline-block;
+      margin-top: 80px;
+      padding: 12px 25px;
+      border-radius: 10px;
+      background: #333;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: buttonAppear 0.8s forwards;
+      animation-delay: 1.3s;
+    }
+
+    a.back-btn:hover {
+      background: #555;
+      transform: scale(1.05);
+    }
+
+    @keyframes buttonAppear { to {opacity:1; transform: translateY(0);} }
+  </style>
+</head>
+<body>
+  <header><span>💖</span> My Family</header>
+  <div class="output">
+    Developer has not uploaded any family names yet,<br>
+    so we can't find any message. 🚫
+  </div>
+  <a href="index.html" class="back-btn">⬅ Back to Home</a>
+</body>
+</html>
